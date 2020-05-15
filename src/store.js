@@ -1,11 +1,15 @@
 import { createStore, applyMiddleware, compose } from "redux";
-import thunk from "redux-thunk";
-import reducer from "./reducers";
+import createSagaMiddleware from "redux-saga";
+import { all } from "redux-saga/effects";
+import gnomesSaga from "./containers/Gnomes/gnomes.saga";
+import reducers from "./reducers";
 
-const store = createStore(
-  reducer,
+const sagaMiddleware = createSagaMiddleware();
+
+export default createStore(
+  reducers,
   compose(
-    applyMiddleware(thunk),
+    applyMiddleware(sagaMiddleware),
     typeof window === "object" &&
       typeof window.__REDUX_DEVTOOLS_EXTENSION__ !== "undefined"
       ? window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -13,4 +17,8 @@ const store = createStore(
   )
 );
 
-export default store;
+function* rootSaga() {
+  yield all([gnomesSaga()]);
+}
+
+sagaMiddleware.run(rootSaga);

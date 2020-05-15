@@ -1,8 +1,12 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
-import Button from 'react-bootstrap/Button'
+import {useHistory} from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import {Card,Button} from "react-bootstrap";
+import { CardContainer, CardImgTop } from "./styles";
 
-export default ({ gnomes }) => {
+export default () => {
+  const history = useHistory();
+  const { gnome } = useSelector(state => state.gnomes);
   const {
     name,
     thumbnail,
@@ -12,9 +16,19 @@ export default ({ gnomes }) => {
     hair_color,
     professions,
     friends,
-  } = gnomes;
+  } = gnome;
+  console.log(name,
+    thumbnail,
+    age,
+    weight,
+    height,
+    hair_color,
+    professions,
+    friends)
   return (
-    <Card style={{ width: "18rem" }}>
+    <>
+    <Button onClick={()=>history.goBack()}>Back</Button>
+    <Card>
       <Card.Img variant="top" src={thumbnail} />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
@@ -26,8 +40,8 @@ export default ({ gnomes }) => {
           {professions}
           {friends}
         </Card.Text>
-        <Button variant="primary">See More..</Button>
       </Card.Body>
-    </Card>
+      </Card>
+      </>
   );
 };

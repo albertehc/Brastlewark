@@ -5,8 +5,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     height: 100%;
     background-color: #F1EFE1;
-    font-family: spotify-circular, spotify-circular-cyrillic,
-    spotify-circular-arabic, spotify-circular-hebrew, Helvetica Neue, Helvetica,
+    font-family: Helvetica Neue, Helvetica,
     Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif;
     letter-spacing: .015rem;
     font-weight: 400;
