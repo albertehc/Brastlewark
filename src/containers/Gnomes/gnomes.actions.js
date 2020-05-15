@@ -23,3 +23,23 @@ export const getGnomeSuccess = payload => ({
   type: constants.GET_GNOME_SUCCESS,
   payload
 });
+
+export const getGnomesPageRequest = payload => ({
+  type: constants.GET_GNOMES_PAGE_REQUEST,
+  payload
+});
+
+export const getGnomesPageSuccess = payload => ({
+  type: constants.GET_GNOMES_PAGE_SUCCESS,
+  payload
+});
+
+export const getGnomesSearchRequest = payload => ({
+  type: constants.GET_GNOMES_SEARCH_REQUEST,
+  payload
+});
+
+export const getGnomesSearchSuccess = payload => ({
+  type: constants.GET_GNOMES_SEARCH_SUCCESS,
+  payload
+});

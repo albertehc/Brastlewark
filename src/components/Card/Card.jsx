@@ -6,7 +6,7 @@ import { CardContainer, CardImgTop } from "./styles";
 
 export default () => {
   const history = useHistory();
-  const { gnome } = useSelector(state => state.gnomes);
+  const { loading, gnome } = useSelector(state => state.gnomes);
   const {
     name,
     thumbnail,
@@ -17,14 +17,7 @@ export default () => {
     professions,
     friends,
   } = gnome;
-  console.log(name,
-    thumbnail,
-    age,
-    weight,
-    height,
-    hair_color,
-    professions,
-    friends)
+  if (loading) return <div>Loading...</div>
   return (
     <>
     <Button onClick={()=>history.goBack()}>Back</Button>
