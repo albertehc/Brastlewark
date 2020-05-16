@@ -34,6 +34,9 @@ const GlobalStyles = createGlobalStyle`
   #root {
     max-height: 100vh;
   }
+  .row {
+    justify-content:center;
+  }
 `;
 
 export default GlobalStyles;

@@ -15,10 +15,26 @@ export default () => {
     <Pagination>
       <Pagination.First onClick={() => changePage(1)} />
       <Pagination.Prev onClick={() => changePage(actualPage - 1)} />
-      {actualPage > 1 && <Pagination.Item onClick={() => changePage(actualPage - 1)}>{actualPage - 1}</Pagination.Item>}
+      {actualPage === totalPages && (
+        <Pagination.Item onClick={() => changePage(actualPage - 2)}>
+          {actualPage - 2}
+        </Pagination.Item>
+      )}
+      {actualPage > 1 && (
+        <Pagination.Item onClick={() => changePage(actualPage - 1)}>
+          {actualPage - 1}
+        </Pagination.Item>
+      )}
       <Pagination.Item active>{actualPage}</Pagination.Item>
       {actualPage < totalPages && (
-        <Pagination.Item onClick={() => changePage(actualPage + 1)}>{actualPage + 1}</Pagination.Item>
+        <Pagination.Item onClick={() => changePage(actualPage + 1)}>
+          {actualPage + 1}
+        </Pagination.Item>
+      )}
+      {actualPage === 1 && (
+        <Pagination.Item onClick={() => changePage(actualPage + 2)}>
+          {actualPage + 2}
+        </Pagination.Item>
       )}
       <Pagination.Next onClick={() => changePage(actualPage + 1)} />
       <Pagination.Last onClick={() => changePage(totalPages)} />

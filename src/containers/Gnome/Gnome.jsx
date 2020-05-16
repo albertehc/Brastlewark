@@ -1,12 +1,15 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
-import Card from "../../components/Card/Card";
+import { Card } from "../../components";
 
 export default () => {
-  const { loading } = useSelector(state => state.gnomes);
-  if (loading) return <div>Loading...</div>;
+  const history = useHistory();
+  const { loading,gnome } = useSelector(state => state.gnomes);
   
+  if (Object.keys(gnome).length === 0) history.push('/');
+  if (loading) return <div>Loading...</div>;
   return (
     <Container>
       <Row>

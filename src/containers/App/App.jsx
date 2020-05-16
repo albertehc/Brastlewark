@@ -2,8 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Routes } from "./../../utils/routes";
 import Navbar from './../Navbar';
-import Home from './../../views/Home';
-import Gnome from '../../views/Gnome';
+import { Home,Gnome } from './../../views';
 
 const App = () => {
   return (
