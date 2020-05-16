@@ -39,6 +39,7 @@ export default (state = initialState, { type, payload }) => {
     case constants.GET_GNOME_SUCCESS:
       return {
         ...state,
+        actualGnomes: [],
         gnome: state.gnomes.filter((e) => e.id === payload)[0],
         loading: false,
       };
