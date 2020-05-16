@@ -6,7 +6,9 @@ export const CardImgTop = styled(CardImg)`
   height: 50%;
 `;
 export const CardFooter = styled.div`
-  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   padding: 0;
   margin-bottom: 0;
 `;

@@ -32,7 +32,8 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
   #root {
-    max-height: 100vh;
+    ${'' /* max-height: 100vh; */}
+    margin-bottom: 2rem;
   }
   .row {
     justify-content:center;

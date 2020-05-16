@@ -15,7 +15,7 @@ export default ({ gnomes }) => {
     history.push(`/gnome/${id}`);
   };
   return (
-    <CardContainer className='d-flex'>
+    <CardContainer>
       <CardImgTop src={thumbnail} />
       <Card.Body>
         <Card.Title className='text-center'>{name}</Card.Title>

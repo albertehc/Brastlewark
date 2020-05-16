@@ -1,15 +1,18 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col, CardColumns } from "react-bootstrap";
-import { getGnomesRequest,getGnomesSearchRequest } from "./gnomes.actions";
+import { getGnomesRequest } from "./gnomes.actions";
 import { Pagination, Cards } from "./../../components";
-import { ColCenter,CardColumn } from './styles'
+import { ColCenter, CardColumn } from "./styles";
 
 export default () => {
   const dispatch = useDispatch();
-  const { loading, actualGnomes, postPerPage, actualPage, search } = useSelector(
-    (state) => state.gnomes
-  );
+  const {
+    loading,
+    actualGnomes,
+    postPerPage,
+    actualPage,
+  } = useSelector((state) => state.gnomes);
   React.useEffect(() => {
     if (!actualGnomes.length) {
       dispatch(getGnomesRequest());
@@ -25,19 +28,6 @@ export default () => {
   return (
     <Container>
       <Row>
-        <ColCenter>
-          <Pagination />
-        </ColCenter>
-      </Row>
-      <Row>
-        <ColCenter>
-          <input value={search} onChange={((e) => dispatch(getGnomesSearchRequest(e.target.value)))}></input>
-        </ColCenter>
-        <ColCenter>
-         {actualGnomes?.length} Results
-        </ColCenter>
-      </Row>
-      <Row>
         <Col>
           <CardColumn>
             {currentGnomes?.map((e) => (
@@ -45,6 +35,11 @@ export default () => {
             ))}
           </CardColumn>
         </Col>
+      </Row>
+      <Row>
+        <ColCenter>
+          <Pagination />
+        </ColCenter>
       </Row>
     </Container>
   );

@@ -7,12 +7,12 @@ export const ColCenter = styled(Col)`
 `;
 
 export const CardColumn = styled(CardColumns)`
+  -webkit-column-break-inside: avoid;
   @media (min-width: 576px) {
     column-count: 2;
   }
   @media (min-width: 768px) {
     column-count: 3;
-    -webkit-column-break-inside: avoid;
   }
   @media (min-width: 992px) {
     column-count: 4;
