@@ -15,10 +15,10 @@ export default ({ gnomes }) => {
     history.push(`/gnome/${id}`);
   };
   return (
-    <CardContainer>
+    <CardContainer className='d-flex'>
       <CardImgTop src={thumbnail} />
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
+        <Card.Title className='text-center'>{name}</Card.Title>
       </Card.Body>
       <CardFooter>
         <Button className='btn btn-primary btn-block' onClick={() => getInfo(id)} variant="info">

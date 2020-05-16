@@ -3,14 +3,16 @@ import { Card, CardImg } from "react-bootstrap";
 
 export const CardImgTop = styled(CardImg)`
   /* object-fit: cover; */
-  height: 200px;
+  height: 50%;
 `;
-export const CardFooter = styled(Card)`
+export const CardFooter = styled.div`
   display: flex;
   padding: 0;
+  margin-bottom: 0;
 `;
 export const CardContainer = styled(Card)`
   height: 25rem;
+  margin: 0;
   /* width: 90%;
   
   margin: 0.5rem auto;

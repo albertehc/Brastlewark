@@ -12,6 +12,7 @@ export const CardColumn = styled(CardColumns)`
   }
   @media (min-width: 768px) {
     column-count: 3;
+    -webkit-column-break-inside: avoid;
   }
   @media (min-width: 992px) {
     column-count: 4;

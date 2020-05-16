@@ -9,17 +9,24 @@ const initialState = {
   actualPage: 1,
   postPerPage: 20,
   gnome: {},
+  search: '',
 };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case constants.GET_GNOMES_SEARCH_REQUEST:
+    
     case constants.GET_GNOMES_PAGE_REQUEST:
     case constants.GET_GNOMES_REQUEST:
     case constants.GET_GNOME_REQUEST:
       return {
         ...state,
         loading: true,
+      };
+    case constants.GET_GNOMES_SEARCH_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        search: payload
       };
     case constants.GET_GNOMES_SUCCESS:
       return {

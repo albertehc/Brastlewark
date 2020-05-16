@@ -7,7 +7,7 @@ import { ColCenter,CardColumn } from './styles'
 
 export default () => {
   const dispatch = useDispatch();
-  const { loading, actualGnomes, postPerPage, actualPage } = useSelector(
+  const { loading, actualGnomes, postPerPage, actualPage, search } = useSelector(
     (state) => state.gnomes
   );
   React.useEffect(() => {
@@ -31,7 +31,7 @@ export default () => {
       </Row>
       <Row>
         <ColCenter>
-          <input onChange={((e) => dispatch(getGnomesSearchRequest(e.target.value)))}></input>
+          <input value={search} onChange={((e) => dispatch(getGnomesSearchRequest(e.target.value)))}></input>
         </ColCenter>
         <ColCenter>
          {actualGnomes?.length} Results
