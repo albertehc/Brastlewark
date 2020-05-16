@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col, CardColumns } from "react-bootstrap";
 import { getGnomesRequest,getGnomesSearchRequest } from "./gnomes.actions";
 import { Pagination, Cards } from "./../../components";
-import { ColCenter } from './styles'
+import { ColCenter,CardColumn } from './styles'
 
 export default () => {
   const dispatch = useDispatch();
@@ -39,11 +39,11 @@ export default () => {
       </Row>
       <Row>
         <Col>
-          <CardColumns>
+          <CardColumn>
             {currentGnomes?.map((e) => (
               <Cards key={e.id} gnomes={e} />
             ))}
-          </CardColumns>
+          </CardColumn>
         </Col>
       </Row>
     </Container>

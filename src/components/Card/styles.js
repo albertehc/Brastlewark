@@ -3,14 +3,16 @@ import { CardImg, Card } from "react-bootstrap";
 
 export const CardImgTop = styled(CardImg)`
   width: auto;
+  height: 36vw;
+  /* object-fit: cover; */
   @media (min-width: 576px) {
-    height: 30vw;
+    height: 32vw;
   }
   @media (min-width: 768px) {
-    height: 27vw;
+    height: 29vw;
   }
   @media (min-width: 992px) {
-    height: 25vw;
+    height: 27vw;
   }
 `;
 

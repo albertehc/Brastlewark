@@ -7,7 +7,7 @@ const initialState = {
   error: null,
   totalPages: 1,
   actualPage: 1,
-  postPerPage: 21,
+  postPerPage: 20,
   gnome: {},
 };
 

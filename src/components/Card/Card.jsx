@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Card, Button, Container, Row } from "react-bootstrap";
+import Icons from "./../../assets/icons/professions";
 import { CardContainer, CardImgTop } from "./styles";
 import { Friend } from "./../";
 
@@ -40,18 +41,26 @@ export default () => {
             <Card.Body>
               <Card.Title>{name}</Card.Title>
               <Card.Text>
-                {age}
-                {weight}
-                {height}
-                {hair_color}
-                {professions}
+                    {age}
+                    {weight}
+                    {height}
+                  {hair_color}
+                  {professions && professions.map((e) => (
+                    <img
+                      className='m-2'
+                          alt={e}
+                          key={e}
+                          src={Icons[e.trim().split(" ")[0]]}
+                        />
+                      )
+                  )}
               </Card.Text>
             </Card.Body>
-            {friendList.length !== 0 && <Card.Footer className='text-center'>
-              Friends
-              <Container>
-                <Row>
-                  {friendList.map((e) => (
+            {friendList.length !== 0 && (
+              <Card.Footer className="text-center">
+                Friends
+                  <Row>
+                    {friendList.map((e) => (
                       <Friend
                         key={e.id}
                         id={e.id}
@@ -59,9 +68,9 @@ export default () => {
                         thumbnail={e.thumbnail}
                       />
                     ))}
-                </Row>
-              </Container>
-            </Card.Footer>}
+                  </Row>
+              </Card.Footer>
+            )}
           </CardContainer>
         </Row>
       </Container>

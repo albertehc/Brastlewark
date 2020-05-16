@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-import { CardImgTop } from "./styles";
+import { CardImgTop, CardContainer, CardFooter } from "./styles";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getGnomeRequest } from "./../../containers/Gnomes/gnomes.actions";
@@ -15,14 +15,16 @@ export default ({ gnomes }) => {
     history.push(`/gnome/${id}`);
   };
   return (
-    <Card>
-      <CardImgTop variant="top" src={thumbnail} />
+    <CardContainer>
+      <CardImgTop src={thumbnail} />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
-        <Button onClick={() => getInfo(id)} variant="primary">
+      </Card.Body>
+      <CardFooter>
+        <Button className='btn btn-primary btn-block' onClick={() => getInfo(id)} variant="info">
           See More..
         </Button>
-      </Card.Body>
-    </Card>
+      </CardFooter>
+    </CardContainer>
   );
 };
