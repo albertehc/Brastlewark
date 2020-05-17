@@ -1,5 +1,5 @@
 import * as constants from "./gnomes.contants";
-import Professions from './../../assets/icons/professions'
+import Professions from "./../../assets/icons/professions";
 const initialState = {
   gnomes: [],
   actualGnomes: [],
@@ -11,7 +11,7 @@ const initialState = {
   average: 0,
   gnome: {},
   search: "",
-  professions: []
+  professions: [],
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -46,7 +46,7 @@ export default (state = initialState, { type, payload }) => {
         average,
         loading: false,
         error: null,
-        professions
+        professions,
       };
     case constants.GET_GNOMES_FAILURE:
       return {
@@ -60,6 +60,7 @@ export default (state = initialState, { type, payload }) => {
         actualGnomes: [],
         gnome: state.gnomes.filter((e) => e.id === payload)[0],
         loading: false,
+        search: "",
       };
     case constants.GET_GNOMES_PAGE_SUCCESS:
       return {

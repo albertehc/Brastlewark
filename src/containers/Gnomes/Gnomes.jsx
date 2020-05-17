@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Container, Row, Col, CardColumns } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { getGnomesRequest } from "./gnomes.actions";
 import { Pagination, Cards } from "./../../components";
 import { ColCenter, CardColumn } from "./styles";

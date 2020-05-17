@@ -70,7 +70,7 @@ export default () => {
                 {weight}
                 {height}
                 {hair_color}
-                <div className="d-flex justify-content-center">
+                <span className="d-flex justify-content-center">
                   {professions &&
                     professions.map((e) => (
                       <Profession
@@ -81,7 +81,7 @@ export default () => {
                         src={Icons[e.trim().split(" ")[0]]}
                       />
                     ))}
-                </div>
+                </span>
               </Card.Text>
             </Card.Body>
             {friendList.length !== 0 && (

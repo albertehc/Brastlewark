@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { getGnomesSearchRequest } from "./../../containers/Gnomes/gnomes.actions";
 import {
   Navbar,
@@ -16,6 +16,11 @@ export default () => {
     (state) => state.gnomes
   );
   const dispatch = useDispatch();
+  const history = useHistory();
+  const handleProfession = (profession) => {
+    if (search !== profession) dispatch(getGnomesSearchRequest(profession));
+    if (history.location.pathname !== "/") history.push("/");
+  };
   return (
     <Navbar sticky="top" bg="light" expand="lg">
       <Link to="/">
@@ -26,21 +31,19 @@ export default () => {
         <Nav className="mr-auto">
           <NavDropdown title="Professions" id="basic-nav-dropdown">
             {professions?.map((e) => (
-              <NavDropdown.Item
-                onClick={() => dispatch(getGnomesSearchRequest(e))}
-              >
+              <NavDropdown.Item key={e} onClick={() => handleProfession(e)}>
                 {e}
               </NavDropdown.Item>
             ))}
           </NavDropdown>
         </Nav>
-        <div className="mr-2 mb-1">{actualGnomes?.length} Results</div>
+        <div className="mr-2 mb-1">{actualGnomes?.length > 0 && `${actualGnomes.length} Results`}</div>
         <Form inline>
           <FormControl
             value={search}
             onChange={(e) => dispatch(getGnomesSearchRequest(e.target.value))}
             type="text"
-            placeholder="Search"
+            placeholder="Search..."
             className="mr-sm-2"
           />
           <Button variant="outline-success">Search</Button>
