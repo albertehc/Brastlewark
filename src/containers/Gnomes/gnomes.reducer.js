@@ -7,7 +7,7 @@ const initialState = {
   error: null,
   totalPages: 1,
   actualPage: 1,
-  postPerPage: 20,
+  postPerPage: 10,
   average: 0,
   gnome: {},
   search: "",
@@ -38,10 +38,15 @@ export default (state = initialState, { type, payload }) => {
           return avg + weight / length;
         }, 0);
       const professions = Array.from(Object.keys(Professions));
+      const gnomes = payload.map(e => {
+        if ((e.height / e.weight) > average) e.gender = 'Male'
+        else e.gender = 'Female'
+        return e
+      })
       return {
         ...state,
-        gnomes: payload,
-        actualGnomes: payload,
+        gnomes,
+        actualGnomes: gnomes,
         totalPages: Math.ceil(payload.length / state.postPerPage),
         average,
         loading: false,

@@ -12,10 +12,10 @@ export const CardColumn = styled(CardColumns)`
     column-count: 2;
   }
   @media (min-width: 768px) {
-    column-count: 3;
+    column-count: 2;
   }
   @media (min-width: 992px) {
-    column-count: 4;
+    column-count: 5;
   }
   @media (min-width: 1200px) {
     column-count: 5;

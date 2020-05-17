@@ -11,20 +11,20 @@ import {
   ImgContainer,
   Profession,
 } from "./styles";
-import Male from "./../../assets/icons/gender/male.png";
-import Female from "./../../assets/icons/gender/female.png";
+import Male from "./../../assets/icons/gender/male-2x.png";
+import Female from "./../../assets/icons/gender/female-2x.png";
 import { Friend } from "./../";
+import Hair from "./../Hair";
 
 export default () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { loading, gnome, gnomes, average } = useSelector(
-    (state) => state.gnomes
-  );
+  const { loading, gnome, gnomes } = useSelector((state) => state.gnomes);
   const {
     name,
     thumbnail,
     age,
+    gender,
     weight,
     height,
     hair_color,
@@ -59,27 +59,35 @@ export default () => {
               <ImgAvatar alt={name} src={thumbnail} />
             </ImgContainer>
             <Card.Body>
-              <Card.Title className='d-flex justify-content-center'>{name}</Card.Title>
+              <Card.Title className="d-flex justify-content-center">
+                {name}
+              </Card.Title>
               <Card.Text>
-                {height / weight > average ? (
+              <div className='d-flex justify-content-center'>
+                {gender === "Male" ? (
                   <img src={Male} alt="Male" />
                 ) : (
                   <img src={Female} alt="Female" />
                 )}
-                {age}
-                {weight}
-                {height}
-                {hair_color}
+                <Hair size="100" color={hair_color} />
+                <div>
+                  <p>Age: {age}</p>
+                  <p>Weight: {weight}</p>
+                  <p>Height: {height}</p>
+                  </div>
+                  </div>
                 <span className="d-flex justify-content-center">
                   {professions &&
                     professions.map((e) => (
+                      <div key={e}>
                       <Profession
                         className="m-2 btn"
                         alt={e}
-                        key={e}
+                        
                         onClick={() => handleProfession(e)}
                         src={Icons[e.trim().split(" ")[0]]}
-                      />
+                        />
+                        </div>
                     ))}
                 </span>
               </Card.Text>
