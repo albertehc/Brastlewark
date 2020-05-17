@@ -1,5 +1,5 @@
 import * as constants from "./gnomes.contants";
-
+import Professions from './../../assets/icons/professions'
 const initialState = {
   gnomes: [],
   actualGnomes: [],
@@ -8,13 +8,14 @@ const initialState = {
   totalPages: 1,
   actualPage: 1,
   postPerPage: 20,
+  average: 0,
   gnome: {},
-  search: '',
+  search: "",
+  professions: []
 };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    
     case constants.GET_GNOMES_PAGE_REQUEST:
     case constants.GET_GNOMES_REQUEST:
     case constants.GET_GNOME_REQUEST:
@@ -26,16 +27,26 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         loading: true,
-        search: payload
+        search: payload,
       };
     case constants.GET_GNOMES_SUCCESS:
+      const average =
+        payload.reduce((avg, { height }, _, { length }) => {
+          return avg + height / length;
+        }, 0) /
+        payload.reduce((avg, { weight }, _, { length }) => {
+          return avg + weight / length;
+        }, 0);
+      const professions = Array.from(Object.keys(Professions));
       return {
         ...state,
         gnomes: payload,
         actualGnomes: payload,
         totalPages: Math.ceil(payload.length / state.postPerPage),
+        average,
         loading: false,
         error: null,
+        professions
       };
     case constants.GET_GNOMES_FAILURE:
       return {

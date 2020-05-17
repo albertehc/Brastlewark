@@ -19,7 +19,7 @@ export default ({ id, name, thumbnail }) => {
           <ImageCircle
             src={thumbnail}
             onClick={() => getInfo(id)}
-            className="rounded-circle"
+            className="rounded-circle btn"
           />
         </Card.Title>
         <CardFooter>{name}</CardFooter>

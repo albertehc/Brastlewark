@@ -26,7 +26,7 @@ export default () => {
     indexLastPost
   );
   return (
-    <Container>
+    <Container className='mt-4'>
       <Row>
         <Col>
           <CardColumn>

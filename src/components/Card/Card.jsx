@@ -4,13 +4,23 @@ import { useSelector, useDispatch } from "react-redux";
 import { Card, Button, Container, Row } from "react-bootstrap";
 import Icons from "./../../assets/icons/professions";
 import { getGnomesSearchRequest } from "./../../containers/Gnomes/gnomes.actions";
-import { CardContainer, CardImgTop } from "./styles";
+import {
+  CardContainer,
+  CardImgTop,
+  ImgAvatar,
+  ImgContainer,
+  Profession,
+} from "./styles";
+import Male from "./../../assets/icons/gender/male.png";
+import Female from "./../../assets/icons/gender/female.png";
 import { Friend } from "./../";
 
 export default () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { loading, gnome, gnomes } = useSelector((state) => state.gnomes);
+  const { loading, gnome, gnomes, average } = useSelector(
+    (state) => state.gnomes
+  );
   const {
     name,
     thumbnail,
@@ -33,8 +43,9 @@ export default () => {
   });
   const handleProfession = (profession) => {
     dispatch(getGnomesSearchRequest(profession));
-    history.push('/');
+    history.push("/");
   };
+
   return (
     <>
       <Container>
@@ -43,24 +54,34 @@ export default () => {
         </Row>
         <Row>
           <CardContainer>
-            <CardImgTop variant="top" src={thumbnail} />
+            <ImgContainer>
+              <CardImgTop variant="top" src={thumbnail} />
+              <ImgAvatar alt={name} src={thumbnail} />
+            </ImgContainer>
             <Card.Body>
-              <Card.Title>{name}</Card.Title>
+              <Card.Title className='d-flex justify-content-center'>{name}</Card.Title>
               <Card.Text>
+                {height / weight > average ? (
+                  <img src={Male} alt="Male" />
+                ) : (
+                  <img src={Female} alt="Female" />
+                )}
                 {age}
                 {weight}
                 {height}
                 {hair_color}
-                {professions &&
-                  professions.map((e) => (
-                    <img
-                      className="m-2"
-                      alt={e}
-                      key={e}
-                      onClick={() => handleProfession(e)}
-                      src={Icons[e.trim().split(" ")[0]]}
-                    />
-                  ))}
+                <div className="d-flex justify-content-center">
+                  {professions &&
+                    professions.map((e) => (
+                      <Profession
+                        className="m-2 btn"
+                        alt={e}
+                        key={e}
+                        onClick={() => handleProfession(e)}
+                        src={Icons[e.trim().split(" ")[0]]}
+                      />
+                    ))}
+                </div>
               </Card.Text>
             </Card.Body>
             {friendList.length !== 0 && (

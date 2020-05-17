@@ -4,7 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { getGnomesPageRequest } from "./../../containers/Gnomes/gnomes.actions";
 
 export default () => {
-  const { actualPage, totalPages, actualGnomes } = useSelector((state) => state.gnomes);
+  const { actualPage, totalPages, actualGnomes } = useSelector(
+    (state) => state.gnomes
+  );
   const dispatch = useDispatch();
   const changePage = (page) => {
     if (page !== 0 && page !== actualPage && page <= totalPages) {
