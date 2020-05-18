@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import { Image, Card } from "react-bootstrap";
+
 export const ImageCircle = styled(Image)`
   object-fit: cover;
   height: 9rem;
   width: 9rem;
+  padding: 0;
   @media (min-width: 576px) {
     height: 9rem;
     width: 9rem;
@@ -30,5 +32,7 @@ export const CardContainer = styled(Card)`
 
 export const CardFooter = styled(Card.Footer)`
   height: 33%;
+  color: black;
+  font-size: 1rem;
   text-align: center;
 `;

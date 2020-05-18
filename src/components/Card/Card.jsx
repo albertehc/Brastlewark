@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { Card, Button, Container, Row } from "react-bootstrap";
+import { Card, Row } from "react-bootstrap";
 import Icons from "./../../assets/icons/professions";
 import { getGnomesSearchRequest } from "./../../containers/Gnomes/gnomes.actions";
 import {
@@ -10,9 +10,9 @@ import {
   ImgAvatar,
   ImgContainer,
   Profession,
+  Professions,
+  TopContainer
 } from "./styles";
-import Male from "./../../assets/icons/gender/male-2x.png";
-import Female from "./../../assets/icons/gender/female-2x.png";
 import { Friend } from "./../";
 import Hair from "./../Hair";
 
@@ -48,68 +48,61 @@ export default () => {
 
   return (
     <>
-      <Container>
-        <Row>
-          <Button onClick={() => history.push("/")}>Back</Button>
-        </Row>
-        <Row>
-          <CardContainer>
+      <Row>
+        <CardContainer>
+          <TopContainer>
             <ImgContainer>
               <CardImgTop variant="top" src={thumbnail} />
               <ImgAvatar alt={name} src={thumbnail} />
             </ImgContainer>
-            <Card.Body>
-              <Card.Title className="d-flex justify-content-center">
-                {name}
-              </Card.Title>
-              <Card.Text>
-              <div className='d-flex justify-content-center'>
-                {gender === "Male" ? (
-                  <img src={Male} alt="Male" />
-                ) : (
-                  <img src={Female} alt="Female" />
-                )}
-                <Hair size="100" color={hair_color} />
-                <div>
-                  <p>Age: {age}</p>
-                  <p>Weight: {weight}</p>
-                  <p>Height: {height}</p>
-                  </div>
-                  </div>
-                <span className="d-flex justify-content-center">
-                  {professions &&
-                    professions.map((e) => (
-                      <div key={e}>
-                      <Profession
-                        className="m-2 btn"
-                        alt={e}
-                        
-                        onClick={() => handleProfession(e)}
-                        src={Icons[e.trim().split(" ")[0]]}
-                        />
-                        </div>
-                    ))}
-                </span>
-              </Card.Text>
-            </Card.Body>
-            {friendList.length !== 0 && (
-              <Card.Footer className="text-center">
-                Friends
-                <Row>
-                  {friendList.map((e) => (
-                    <Friend
-                      key={e.id}
-                      id={e.id}
-                      name={e.name}
-                      thumbnail={e.thumbnail}
+            <Card.Title className="m-5 border border-secondary rounded w-75 mt-2 d-flex flex-column align-items-center justify-content-center">
+              <div className='my-3'>{name}</div>
+              <div className='my-3'>
+                <Hair size="200" gender={gender} color={hair_color} />
+              </div>
+              <div className='my-3'>
+                <p>
+                  <span>{`${age} years`}</span>
+                
+                   <span>{` | ${weight.toFixed(0)} kg`}</span> 
+                
+                  <span>{` | ${height.toFixed(0)} cm`}</span>
+                </p>
+              </div>
+            </Card.Title>
+          </TopContainer>
+          <Card.Body>
+            <Professions className="m-2 d-flex justify-content-around border border-info rounded">
+              {professions &&
+                professions.map((e) => (
+                  <div key={e}>
+                    <Profession
+                      className="m-2 btn"
+                      alt={e}
+                      onClick={() => handleProfession(e)}
+                      src={Icons[e.trim().split(" ")[0]]}
                     />
-                  ))}
-                </Row>
-              </Card.Footer>
-            )}
-          </CardContainer>
-        </Row>
-      </Container>
+                  </div>
+                ))}
+            </Professions>
+          </Card.Body>
+        </CardContainer>
+        {friendList.length !== 0 && (
+          <div className="text-center text-white mt-3 h3">
+            Friends
+            <Row>
+              {friendList.map((e) => (
+                <Friend
+                  key={e.id}
+                  id={e.id}
+                  name={e.name}
+                  thumbnail={e.thumbnail}
+                />
+              ))}
+            </Row>
+          </div>
+        )}
+      </Row>
     </>
   );
 };

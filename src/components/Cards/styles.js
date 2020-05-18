@@ -19,6 +19,7 @@ export const CardFooter = styled.div`
 export const CardContainer = styled(Card)`
   height: 23rem;
   margin: 0;
+  border: 0;
 `;
 
 export const HairContainer = styled.div`

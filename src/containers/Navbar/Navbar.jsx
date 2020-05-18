@@ -46,7 +46,7 @@ export default () => {
             placeholder="Search..."
             className="mr-sm-2"
           />
-          <Button variant="outline-success">Search</Button>
+          <Button type="submit" variant="outline-success">Search</Button>
         </Form>
       </Navbar.Collapse>
     </Navbar>

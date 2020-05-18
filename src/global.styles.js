@@ -3,10 +3,9 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
   html,
   body {
+    font-family: Lobster, cursive;
     height: 100%;
-    background-color: #F1EFE1;
-    font-family: Helvetica Neue, Helvetica,
-    Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif;
+    background: #363636;
     letter-spacing: .015rem;
     font-weight: 400;
     line-height: 20px;
@@ -32,7 +31,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
   #root {
-    ${'' /* max-height: 100vh; */}
+    ${"" /* max-height: 100vh; */}
     margin-bottom: 2rem;
   }
   .row {

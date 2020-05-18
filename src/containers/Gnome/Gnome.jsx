@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { Card } from "../../components";
 
 export default () => {
@@ -12,11 +12,7 @@ export default () => {
   if (loading) return <div>Loading...</div>;
   return (
     <Container>
-      <Row>
-        <Col>
           <Card />
-        </Col>
-      </Row>
     </Container>
   );
 };
