@@ -1,32 +1,23 @@
 import { takeLatest, call, put } from "redux-saga/effects";
 import * as constants from "./gnomes.contants";
 import getGnomes from "./../../utils/api";
-import {
-  getGnomesRequest,
-  getGnomesSuccess,
-  getGnomesFailure,
-  getGnomeSuccess,
-  getGnomesPageRequest,
-  getGnomesPageSuccess,
-  getGnomesSearchRequest,
-  getGnomesSearchSuccess
-} from "./gnomes.actions";
+import * as G from "./gnomes.actions";
 
 function* getGnomesEffect() {
   try {
-    yield call(getGnomesRequest)
+    yield call(G.getGnomesRequest)
     const { Brastlewark } = yield call(getGnomes);
-    yield put(getGnomesSuccess(Brastlewark));
+    yield put(G.getGnomesSuccess(Brastlewark));
   } catch (e) {
     console.error(e);
-    yield put(getGnomesFailure(e));
+    yield put(G.getGnomesFailure(e));
   }
 }
 
 function* getGnomeEffect({ payload }) {
   try {
-    yield call(getGnomesRequest)
-    yield put(getGnomeSuccess(payload));
+    yield call(G.getGnomesRequest)
+    yield put(G.getGnomeSuccess(payload));
   } catch (e) {
     console.error(e);
   }
@@ -34,8 +25,8 @@ function* getGnomeEffect({ payload }) {
 
 function* getGnomesPageEffect({ payload }) {
   try {
-    yield call(getGnomesPageRequest)
-    yield put(getGnomesPageSuccess(payload));
+    yield call(G.getGnomesPageRequest)
+    yield put(G.getGnomesPageSuccess(payload));
   } catch (e) {
     console.error(e);
   }
@@ -43,8 +34,8 @@ function* getGnomesPageEffect({ payload }) {
 
 function* getGnomesSearchEffect({ payload }) {
   try {
-    yield call(getGnomesSearchRequest)
-    yield put(getGnomesSearchSuccess(payload));
+    yield call(G.getGnomesSearchRequest)
+    yield put(G.getGnomesSearchSuccess(payload));
   } catch (e) {
     console.error(e);
   }

@@ -4,23 +4,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { Card, Row } from "react-bootstrap";
 import Icons from "./../../assets/icons/professions";
 import { getGnomesSearchRequest } from "./../../containers/Gnomes/gnomes.actions";
-import {
-  CardContainer,
-  CardImgTop,
-  ImgAvatar,
-  ImgContainer,
-  Profession,
-  Professions,
-  TopContainer,
-  CardTitle
-} from "./styles";
+import * as S from "./styles";
 import { Friend } from "./../";
 import Hair from "./../Hair";
 
-export default () => {
+export default ({ friendList }) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { loading, gnome, gnomes } = useSelector((state) => state.gnomes);
+  const { loading, gnome } = useSelector((state) => state.gnomes);
   const {
     name,
     thumbnail,
@@ -30,19 +21,9 @@ export default () => {
     height,
     hair_color,
     professions,
-    friends,
   } = gnome;
 
   if (loading) return <div>Loading...</div>;
-  const friendList = friends?.map((friend) => {
-    const id = gnomes.findIndex((e) => e.name === friend);
-    return {
-      id,
-      name: friend,
-      thumbnail: gnomes[id].thumbnail,
-      gender: gnomes[id].gender
-    };
-  });
   const handleProfession = (profession) => {
     dispatch(getGnomesSearchRequest(profession));
     history.push("/");
@@ -50,13 +31,13 @@ export default () => {
   return (
     <>
       <Row>
-        <CardContainer>
-          <TopContainer>
-            <ImgContainer>
-              <CardImgTop variant="top" src={thumbnail} />
-              <ImgAvatar alt={name} src={thumbnail} />
-            </ImgContainer>
-            <CardTitle className="m-3 rounded w-75 mt-2 d-flex flex-column align-items-center justify-content-center">
+        <S.CardContainer>
+          <S.TopContainer>
+            <S.ImgContainer>
+              <S.CardImgTop variant="top" src={thumbnail} />
+              <S.ImgAvatar alt={name} src={thumbnail} />
+            </S.ImgContainer>
+            <S.CardTitle className="m-3 rounded w-75 mt-2 d-flex flex-column align-items-center justify-content-center">
               <div className="my-3 h2">{name}</div>
               <div className="my-3">
                 <Hair size="200" gender={gender} color={hair_color} />
@@ -70,10 +51,10 @@ export default () => {
                   <span>{` | ${height.toFixed(0)} cm`}</span>
                 </p>
               </div>
-            </CardTitle>
-          </TopContainer>
-          <Card.Body className='p-3'>
-            <Professions className="d-flex flex-column align-items-center rounded">
+            </S.CardTitle>
+          </S.TopContainer>
+          <Card.Body className="p-3">
+            <S.Professions className="d-flex flex-column align-items-center rounded">
               {professions?.length ? (
                 <>
                   <p className="mt-2">Professions</p>
@@ -83,7 +64,7 @@ export default () => {
                         key={e}
                         className="d-flex flex-column align-items-center"
                       >
-                        <Profession
+                        <S.Profession
                           className="m-2 btn"
                           alt={e}
                           onClick={() => handleProfession(e)}
@@ -97,9 +78,9 @@ export default () => {
               ) : (
                 <p className="mt-2">No professions yet</p>
               )}
-            </Professions>
+            </S.Professions>
           </Card.Body>
-        </CardContainer>
+        </S.CardContainer>
         {friendList.length !== 0 && (
           <div className="text-center text-white mt-3 h3">
             Friends

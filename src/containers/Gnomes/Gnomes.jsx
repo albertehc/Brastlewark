@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 import { getGnomesRequest } from "./gnomes.actions";
 import { Pagination, Cards } from "./../../components";
-import { ColCenter, CardColumn } from "./styles";
+import * as S from "./styles";
 import Spinner from './../../components/Spinner';
 
 export default () => {
@@ -31,17 +31,17 @@ export default () => {
     <Container className='mt-4'>
       <Row>
         <Col>
-          <CardColumn>
+          <S.CardColumn>
             {currentGnomes?.map((e) => (
               <Cards key={e.id} gnomes={e} />
             ))}
-          </CardColumn>
+          </S.CardColumn>
         </Col>
       </Row>
       <Row>
-        <ColCenter>
+        <S.ColCenter>
           <Pagination />
-        </ColCenter>
+        </S.ColCenter>
       </Row>
     </Container>
   );

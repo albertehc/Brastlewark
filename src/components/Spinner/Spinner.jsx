@@ -1,9 +1,9 @@
 import React from "react";
-import { StyledSpinner, SpinnerContainer } from "./styles";
+import * as S from "./styles";
 
 export default () => (
-  <SpinnerContainer>
-    <StyledSpinner viewBox="0 0 50 50">
+  <S.SpinnerContainer>
+    <S.StyledSpinner viewBox="0 0 50 50">
       <circle
         className="path"
         cx="25"
@@ -12,6 +12,6 @@ export default () => (
         fill="none"
         strokeWidth="4"
       />
-    </StyledSpinner>
-  </SpinnerContainer>
+    </S.StyledSpinner>
+  </S.SpinnerContainer>
 );

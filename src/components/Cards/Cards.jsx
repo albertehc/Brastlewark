@@ -1,13 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import {
-  CardImgTop,
-  CardContainer,
-  CardFooter,
-  IconsContainer,
-  CardName,
-  CardBody,
-} from "./styles";
+import * as S from "./styles";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getGnomeRequest } from "./../../containers/Gnomes/gnomes.actions";
@@ -23,15 +16,15 @@ export default ({ gnomes }) => {
     history.push(`/gnome/${id}`);
   };
   return (
-    <CardContainer>
-      <CardImgTop src={thumbnail} />
-      <CardBody>
-        <CardName className="text-center align-middle">{name}</CardName>
-        <IconsContainer>
+    <S.CardContainer>
+      <S.CardImgTop src={thumbnail} />
+      <S.CardBody>
+        <S.CardName className="text-center align-middle">{name}</S.CardName>
+        <S.IconsContainer>
           <Hair gender={gender} size="75" color={hair_color} />
-        </IconsContainer>
-      </CardBody>
-      <CardFooter>
+        </S.IconsContainer>
+      </S.CardBody>
+      <S.CardFooter>
         <Button
           className="btn btn-block border-0"
           onClick={() => getInfo(id)}
@@ -39,7 +32,7 @@ export default ({ gnomes }) => {
         >
           See More..
         </Button>
-      </CardFooter>
-    </CardContainer>
+      </S.CardFooter>
+    </S.CardContainer>
   );
 };
