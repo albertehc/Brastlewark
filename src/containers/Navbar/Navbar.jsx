@@ -55,7 +55,7 @@ export default () => {
             placeholder="Search..."
             className="mr-sm-2"
           />
-          <Button type="submit" variant="outline-success">
+          <Button type="submit" variant="outline-secondary">
             Search
           </Button>
         </Form>

@@ -5,7 +5,8 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: sans-serif;
     height: 100%;
-    background: #A2BCE1;
+    background: #4B4B4B;
+    color: #4B4B4B;
     letter-spacing: .015rem;
     font-weight: 400;
     line-height: 20px;

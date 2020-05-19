@@ -1,5 +1,5 @@
 import React from "react";
-import Pagination from "react-bootstrap/Pagination";
+import PaginationStyle from './styles';
 import { useSelector, useDispatch } from "react-redux";
 import { getGnomesPageRequest } from "./../../containers/Gnomes/gnomes.actions";
 
@@ -14,32 +14,32 @@ export default () => {
     }
   };
   return (
-    <Pagination>
-      <Pagination.First onClick={() => changePage(1)} />
-      <Pagination.Prev onClick={() => changePage(actualPage - 1)} />
+    <PaginationStyle>
+      <PaginationStyle.First onClick={() => changePage(1)} />
+      <PaginationStyle.Prev onClick={() => changePage(actualPage - 1)} />
       {actualPage === totalPages && totalPages > 2 && (
-        <Pagination.Item onClick={() => changePage(actualPage - 2)}>
+        <PaginationStyle.Item onClick={() => changePage(actualPage - 2)}>
           {actualPage - 2}
-        </Pagination.Item>
+        </PaginationStyle.Item>
       )}
       {actualPage > 1 && (
-        <Pagination.Item onClick={() => changePage(actualPage - 1)}>
+        <PaginationStyle.Item onClick={() => changePage(actualPage - 1)}>
           {actualPage - 1}
-        </Pagination.Item>
+        </PaginationStyle.Item>
       )}
-      <Pagination.Item active>{actualPage}</Pagination.Item>
+      <PaginationStyle.Item active>{actualPage}</PaginationStyle.Item>
       {actualPage < totalPages && (
-        <Pagination.Item onClick={() => changePage(actualPage + 1)}>
+        <PaginationStyle.Item onClick={() => changePage(actualPage + 1)}>
           {actualPage + 1}
-        </Pagination.Item>
+        </PaginationStyle.Item>
       )}
       {actualPage === 1 && actualGnomes.length > 0 && totalPages > 2 && (
-        <Pagination.Item onClick={() => changePage(actualPage + 2)}>
+        <PaginationStyle.Item onClick={() => changePage(actualPage + 2)}>
           {actualPage + 2}
-        </Pagination.Item>
+        </PaginationStyle.Item>
       )}
-      <Pagination.Next onClick={() => changePage(actualPage + 1)} />
-      <Pagination.Last onClick={() => changePage(totalPages)} />
-    </Pagination>
+      <PaginationStyle.Next onClick={() => changePage(actualPage + 1)} />
+      <PaginationStyle.Last onClick={() => changePage(totalPages)} />
+    </PaginationStyle>
   );
 };
