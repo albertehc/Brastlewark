@@ -1,45 +1,45 @@
-import * as constants from './gnomes.contants';
+import * as constants from "./gnomes.contants";
 
 export const getGnomesRequest = () => ({
-  type: constants.GET_GNOMES_REQUEST
+  type: constants.GET_GNOMES_REQUEST,
 });
 
-export const getGnomesSuccess = payload => ({
+export const getGnomesSuccess = (payload) => ({
   type: constants.GET_GNOMES_SUCCESS,
-  payload
+  payload,
 });
 
-export const getGnomesFailure = payload => ({
+export const getGnomesFailure = (payload) => ({
   type: constants.GET_GNOMES_FAILURE,
-  payload
+  payload,
 });
 
-export const getGnomeRequest = payload => ({
+export const getGnomeRequest = (payload) => ({
   type: constants.GET_GNOME_REQUEST,
-  payload
+  payload,
 });
 
-export const getGnomeSuccess = payload => ({
+export const getGnomeSuccess = (payload) => ({
   type: constants.GET_GNOME_SUCCESS,
-  payload
+  payload,
 });
 
-export const getGnomesPageRequest = payload => ({
+export const getGnomesPageRequest = (payload) => ({
   type: constants.GET_GNOMES_PAGE_REQUEST,
-  payload
+  payload,
 });
 
-export const getGnomesPageSuccess = payload => ({
+export const getGnomesPageSuccess = (payload) => ({
   type: constants.GET_GNOMES_PAGE_SUCCESS,
-  payload
+  payload,
 });
 
-export const getGnomesSearchRequest = payload => ({
+export const getGnomesSearchRequest = (payload) => ({
   type: constants.GET_GNOMES_SEARCH_REQUEST,
-  payload
+  payload,
 });
 
-export const getGnomesSearchSuccess = payload => ({
+export const getGnomesSearchSuccess = (payload) => ({
   type: constants.GET_GNOMES_SEARCH_SUCCESS,
-  payload
+  payload,
 });

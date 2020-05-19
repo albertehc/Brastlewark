@@ -45,9 +45,7 @@ export default ({ friendList }) => {
               <div className="my-3">
                 <p>
                   <span>{`${age} years`}</span>
-
                   <span>{` | ${weight.toFixed(0)} kg`}</span>
-
                   <span>{` | ${height.toFixed(0)} cm`}</span>
                 </p>
               </div>

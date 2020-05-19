@@ -1,3 +1,3 @@
-import Hair from './Hair';
+import Hair from "./Hair";
 
 export default Hair;

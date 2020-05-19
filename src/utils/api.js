@@ -1,9 +1,10 @@
-import axios from 'axios';
+import axios from "axios";
 
-const baseUrl = 'http://raw.githubusercontent.com/rrafols/mobile_test/master/data.json';
+const baseUrl =
+  "http://raw.githubusercontent.com/rrafols/mobile_test/master/data.json";
 
 const axiosInstance = axios.create({
-  baseURL: baseUrl
+  baseURL: baseUrl,
 });
 
 axiosInstance.interceptors.response.use(
@@ -16,5 +17,5 @@ axiosInstance.interceptors.response.use(
 );
 
 export default () => {
-  return axiosInstance.get('');
-}
+  return axiosInstance.get("");
+};

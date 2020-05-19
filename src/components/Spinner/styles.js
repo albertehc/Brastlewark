@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 export const SpinnerContainer = styled.div`
   width: 100vw;
@@ -7,7 +6,7 @@ export const SpinnerContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  align-content:center;
+  align-content: center;
 `;
 
 export const StyledSpinner = styled.svg`
@@ -15,13 +14,13 @@ export const StyledSpinner = styled.svg`
   margin: -25px 0 0 -25px;
   width: 150px;
   height: 150px;
-  
+
   & .path {
-    stroke: #5652BF;
+    stroke: #5652bf;
     stroke-linecap: round;
     animation: dash 1.5s ease-in-out infinite;
   }
-  
+
   @keyframes rotate {
     100% {
       transform: rotate(360deg);

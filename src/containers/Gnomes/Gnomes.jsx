@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { getGnomesRequest } from "./gnomes.actions";
 import { Pagination, Cards } from "./../../components";
 import * as S from "./styles";
-import Spinner from './../../components/Spinner';
+import Spinner from "./../../components/Spinner";
 
 export default () => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export default () => {
     indexLastPost
   );
   return (
-    <Container className='mt-4'>
+    <Container className="mt-4">
       <Row>
         <Col>
           <S.CardColumn>

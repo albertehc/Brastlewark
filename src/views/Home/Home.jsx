@@ -1,6 +1,4 @@
-import React from 'react'
-import Gnomes  from './../../containers/Gnomes'
+import React from "react";
+import Gnomes from "./../../containers/Gnomes";
 
-export default () => (
-    <Gnomes/>
-)
+export default () => <Gnomes />;

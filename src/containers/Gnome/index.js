@@ -1,3 +1,3 @@
-import Gnome from './Gnome';
+import Gnome from "./Gnome";
 
 export default Gnome;

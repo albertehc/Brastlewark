@@ -6,10 +6,11 @@ export const ImageCircle = styled(Image)`
   height: 9rem;
   width: 9rem;
   padding: 0;
-  border: 5px solid ${(props) => {
-    if (props.gender === "Male") return "#E5283E";
-    else return "#BAFFEE";
-  }};
+  border: 5px solid
+    ${(props) => {
+      if (props.gender === "Male") return "#E5283E";
+      else return "#BAFFEE";
+    }};
   @media (min-width: 576px) {
     height: 9rem;
     width: 9rem;

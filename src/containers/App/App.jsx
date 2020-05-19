@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Routes } from "./../../utils/routes";
-import Navbar from './../Navbar';
-import { Home,Gnome } from './../../views';
+import Navbar from "./../Navbar";
+import { Home, Gnome } from "./../../views";
 
 const App = () => {
   return (

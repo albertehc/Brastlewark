@@ -5,7 +5,7 @@ import * as G from "./gnomes.actions";
 
 function* getGnomesEffect() {
   try {
-    yield call(G.getGnomesRequest)
+    yield call(G.getGnomesRequest);
     const { Brastlewark } = yield call(getGnomes);
     yield put(G.getGnomesSuccess(Brastlewark));
   } catch (e) {
@@ -16,7 +16,7 @@ function* getGnomesEffect() {
 
 function* getGnomeEffect({ payload }) {
   try {
-    yield call(G.getGnomesRequest)
+    yield call(G.getGnomesRequest);
     yield put(G.getGnomeSuccess(payload));
   } catch (e) {
     console.error(e);
@@ -25,7 +25,7 @@ function* getGnomeEffect({ payload }) {
 
 function* getGnomesPageEffect({ payload }) {
   try {
-    yield call(G.getGnomesPageRequest)
+    yield call(G.getGnomesPageRequest);
     yield put(G.getGnomesPageSuccess(payload));
   } catch (e) {
     console.error(e);
@@ -34,7 +34,7 @@ function* getGnomesPageEffect({ payload }) {
 
 function* getGnomesSearchEffect({ payload }) {
   try {
-    yield call(G.getGnomesSearchRequest)
+    yield call(G.getGnomesSearchRequest);
     yield put(G.getGnomesSearchSuccess(payload));
   } catch (e) {
     console.error(e);
@@ -42,10 +42,9 @@ function* getGnomesSearchEffect({ payload }) {
 }
 
 function* gnomesSagas() {
-	yield takeLatest(constants.GET_GNOMES_REQUEST, getGnomesEffect);
+  yield takeLatest(constants.GET_GNOMES_REQUEST, getGnomesEffect);
   yield takeLatest(constants.GET_GNOME_REQUEST, getGnomeEffect);
   yield takeLatest(constants.GET_GNOMES_PAGE_REQUEST, getGnomesPageEffect);
   yield takeLatest(constants.GET_GNOMES_SEARCH_REQUEST, getGnomesSearchEffect);
 }
 export default gnomesSagas;
-

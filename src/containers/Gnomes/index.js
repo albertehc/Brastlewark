@@ -1,3 +1,3 @@
-import Gnomes from './Gnomes';
+import Gnomes from "./Gnomes";
 
 export default Gnomes;
