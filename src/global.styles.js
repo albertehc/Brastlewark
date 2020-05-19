@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
   html,
   body {
-    font-family: Lobster, cursive;
+    font-family: sans-serif;
     height: 100%;
     background: #A2BCE1;
     letter-spacing: .015rem;
