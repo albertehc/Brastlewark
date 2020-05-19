@@ -17,13 +17,22 @@ export default () => {
   );
   const dispatch = useDispatch();
   const history = useHistory();
+
   const handleProfession = (profession) => {
     if (search !== profession) dispatch(getGnomesSearchRequest(profession));
     if (history.location.pathname !== "/") history.push("/");
   };
+
+  const dispatchSearch = (event) => {
+    event.preventDefault();
+    if (history.location.pathname !== "/") history.push("/");
+  };
+
   return (
     <Navbar sticky="top" bg="light" expand="lg">
-      <Navbar.Brand onClick={()=> history.push('/')} className="btn">BrastleWark</Navbar.Brand>
+      <Navbar.Brand onClick={() => history.push("/")} className="btn">
+        BrastleWark
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
@@ -35,8 +44,10 @@ export default () => {
             ))}
           </NavDropdown>
         </Nav>
-        <div className="mr-2 mb-1">{actualGnomes?.length > 0 && `${actualGnomes.length} Results`}</div>
-        <Form inline>
+        <div className="mr-2 mb-1">
+          {actualGnomes?.length > 0 && `${actualGnomes.length} Results`}
+        </div>
+        <Form onSubmit={dispatchSearch} inline>
           <FormControl
             value={search}
             onChange={(e) => dispatch(getGnomesSearchRequest(e.target.value))}
@@ -44,7 +55,9 @@ export default () => {
             placeholder="Search..."
             className="mr-sm-2"
           />
-          <Button type="submit" variant="outline-success">Search</Button>
+          <Button type="submit" variant="outline-success">
+            Search
+          </Button>
         </Form>
       </Navbar.Collapse>
     </Navbar>
