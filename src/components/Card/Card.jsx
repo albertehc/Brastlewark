@@ -11,7 +11,8 @@ import {
   ImgContainer,
   Profession,
   Professions,
-  TopContainer
+  TopContainer,
+  CardTitle
 } from "./styles";
 import { Friend } from "./../";
 import Hair from "./../Hair";
@@ -39,13 +40,13 @@ export default () => {
       id,
       name: friend,
       thumbnail: gnomes[id].thumbnail,
+      gender: gnomes[id].gender
     };
   });
   const handleProfession = (profession) => {
     dispatch(getGnomesSearchRequest(profession));
     history.push("/");
   };
-
   return (
     <>
       <Row>
@@ -55,35 +56,47 @@ export default () => {
               <CardImgTop variant="top" src={thumbnail} />
               <ImgAvatar alt={name} src={thumbnail} />
             </ImgContainer>
-            <Card.Title className="m-5 border border-secondary rounded w-75 mt-2 d-flex flex-column align-items-center justify-content-center">
-              <div className='my-3'>{name}</div>
-              <div className='my-3'>
+            <CardTitle className="m-3 rounded w-75 mt-2 d-flex flex-column align-items-center justify-content-center">
+              <div className="my-3 h2">{name}</div>
+              <div className="my-3">
                 <Hair size="200" gender={gender} color={hair_color} />
               </div>
-              <div className='my-3'>
+              <div className="my-3">
                 <p>
                   <span>{`${age} years`}</span>
-                
-                   <span>{` | ${weight.toFixed(0)} kg`}</span> 
-                
+
+                  <span>{` | ${weight.toFixed(0)} kg`}</span>
+
                   <span>{` | ${height.toFixed(0)} cm`}</span>
                 </p>
               </div>
-            </Card.Title>
+            </CardTitle>
           </TopContainer>
-          <Card.Body>
-            <Professions className="m-2 d-flex justify-content-around border border-info rounded">
-              {professions &&
-                professions.map((e) => (
-                  <div key={e}>
-                    <Profession
-                      className="m-2 btn"
-                      alt={e}
-                      onClick={() => handleProfession(e)}
-                      src={Icons[e.trim().split(" ")[0]]}
-                    />
+          <Card.Body className='p-3'>
+            <Professions className="d-flex flex-column align-items-center rounded">
+              {professions?.length ? (
+                <>
+                  <p className="mt-2">Professions</p>
+                  <div className="d-flex justify-content-around flex-wrap mb-2">
+                    {professions.map((e) => (
+                      <div
+                        key={e}
+                        className="d-flex flex-column align-items-center"
+                      >
+                        <Profession
+                          className="m-2 btn"
+                          alt={e}
+                          onClick={() => handleProfession(e)}
+                          src={Icons[e.trim().split(" ")[0]]}
+                        />
+                        <span>{e}</span>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </>
+              ) : (
+                <p className="mt-2">No professions yet</p>
+              )}
             </Professions>
           </Card.Body>
         </CardContainer>
@@ -97,6 +110,7 @@ export default () => {
                   id={e.id}
                   name={e.name}
                   thumbnail={e.thumbnail}
+                  gender={e.gender}
                 />
               ))}
             </Row>

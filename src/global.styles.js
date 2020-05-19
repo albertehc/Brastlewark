@@ -5,7 +5,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: Lobster, cursive;
     height: 100%;
-    background: #363636;
+    background: #A2BCE1;
     letter-spacing: .015rem;
     font-weight: 400;
     line-height: 20px;

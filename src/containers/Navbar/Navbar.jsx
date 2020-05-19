@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { getGnomesSearchRequest } from "./../../containers/Gnomes/gnomes.actions";
 import {
   Navbar,
@@ -23,9 +23,7 @@ export default () => {
   };
   return (
     <Navbar sticky="top" bg="light" expand="lg">
-      <Link to="/">
-        <Navbar.Brand className="btn">BrastleWark</Navbar.Brand>
-      </Link>
+      <Navbar.Brand onClick={()=> history.push('/')} className="btn">BrastleWark</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">

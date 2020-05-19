@@ -33,9 +33,9 @@ export default ({ gnomes }) => {
       </CardBody>
       <CardFooter>
         <Button
-          className="btn btn-primary btn-block"
+          className="btn btn-block border-0"
           onClick={() => getInfo(id)}
-          variant="secondary"
+          variant="outline-secondary"
         >
           See More..
         </Button>

@@ -38,11 +38,11 @@ export default (state = initialState, { type, payload }) => {
           return avg + weight / length;
         }, 0);
       const professions = Array.from(Object.keys(Professions));
-      const gnomes = payload.map(e => {
-        if ((e.height / e.weight) > average) e.gender = 'Male'
-        else e.gender = 'Female'
-        return e
-      })
+      const gnomes = payload.map((e) => {
+        if (e.height / e.weight > average) e.gender = "Male";
+        else e.gender = "Female";
+        return e;
+      });
       return {
         ...state,
         gnomes,
@@ -62,7 +62,7 @@ export default (state = initialState, { type, payload }) => {
     case constants.GET_GNOME_SUCCESS:
       return {
         ...state,
-        actualGnomes: [],
+        actualGnomes: state.gnomes,
         gnome: state.gnomes.filter((e) => e.id === payload)[0],
         loading: false,
         search: "",

@@ -29,13 +29,12 @@ export const ImgContainer = styled.div`
     width: 100%;
   }
   @media (min-width: 768px) {
-    margin-top: 2rem;
-    margin-left: 2rem;
-    height: 50vh;
+    margin-left: 1rem;
+    height: 25rem;
     width: 22rem;
   }
   @media (min-width: 992px) {
-    height: 50vh;
+    height: 25rem;
     width: 20rem;
   }
 `;
@@ -50,7 +49,6 @@ export const TopContainer = styled.div`
   }
 `;
 
-
 export const CardContainer = styled(Card)`
   width: 90%;
   height: 90%;
@@ -63,12 +61,17 @@ export const Professions = styled.div`
   display: flex;
   flex-direction: row;
   flex-flow: wrap;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.06);
 `;
 
 export const Profession = styled.img`
   &:hover {
     opacity: 0.5;
   }
+`;
+
+export const CardTitle = styled.div`
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.06);
 `;
 
 export const ImgAvatar = styled.img`

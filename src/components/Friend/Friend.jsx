@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { getGnomeRequest } from "./../../containers/Gnomes/gnomes.actions";
 import { ImageCircle, CardContainer, CardFooter } from "./styles";
 
-export default ({ id, name, thumbnail }) => {
+export default ({ id, name, thumbnail, gender }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const getInfo = (id) => {
@@ -20,6 +20,7 @@ export default ({ id, name, thumbnail }) => {
             src={thumbnail}
             onClick={() => getInfo(id)}
             className="rounded-circle btn"
+            gender={gender}
           />
         </Card.Title>
         <CardFooter>{name}</CardFooter>
