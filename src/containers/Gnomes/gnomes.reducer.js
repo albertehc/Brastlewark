@@ -1,7 +1,7 @@
 import * as constants from "./gnomes.contants";
 import Professions from "./../../assets/icons/professions";
 
-const initialState = {
+export const initialState = {
   gnomes: [],
   actualGnomes: [],
   loading: true,
