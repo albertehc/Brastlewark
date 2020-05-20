@@ -4,6 +4,20 @@
 
 Single page app in React to show data from an static JSON.
 
+## Installation & Run
+
+*Install:*
+### `npm i or yarn install`
+*Development:*
+### `npm start or yarn start`
+*Production: (Remember to change the homepage on package.json)*
+### `npm build or yarn build`
+
+
+## Test
+
+### yarn test --watchAll
+
 ## Routes
 
 | Path   | Component      | Permissions | Behavior        |
