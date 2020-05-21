@@ -16,7 +16,7 @@ Single page app in React to show data from an static JSON with global search to 
 
 ## Test
 
-### yarn run test --watchAll
+### `yarn run test --watchAll`
 
 ## Routes
 
