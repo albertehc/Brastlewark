@@ -1,4 +1,4 @@
-import * as constants from "./gnomes.contants";
+import * as constants from "../constants/gnomes.contants";
 
 export const getGnomesRequest = () => ({
   type: constants.GET_GNOMES_REQUEST,

@@ -1,7 +1,7 @@
 import React from "react";
-import PaginationStyle from './styles';
+import PaginationStyle from "./styles";
 import { useSelector, useDispatch } from "react-redux";
-import { getGnomesPageRequest } from "./../../containers/Gnomes/gnomes.actions";
+import { getGnomesPageRequest } from "./../../redux/actions/gnomes.actions";
 
 export default () => {
   const { actualPage, totalPages, actualGnomes } = useSelector(

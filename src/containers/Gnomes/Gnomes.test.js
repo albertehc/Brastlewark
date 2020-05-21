@@ -1,7 +1,7 @@
-import * as A from "./gnomes.actions";
-import reducer from "./gnomes.reducer";
-import * as constants from "./gnomes.contants";
-import initialState from "./gnomes.reducer";
+import * as A from "./../../redux/actions/gnomes.actions";
+import reducer from "./../../redux/reducers/gnomes.reducer";
+import * as constants from "./../../redux/constants/gnomes.contants";
+import initialState from "./../../redux/reducers/gnomes.reducer";
 import gnomesExample from "../../utils/gnomes";
 
 describe("ACTIONS", () => {

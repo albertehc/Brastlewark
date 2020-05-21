@@ -3,9 +3,8 @@ import ReactDOM from "react-dom";
 import App from "./containers/App";
 import * as serviceWorker from "./serviceWorker";
 import GlobalStyle from "./global.styles";
-
 import { Provider } from "react-redux";
-import store from "./store";
+import store from "./redux/store";
 
 ReactDOM.render(
   <React.StrictMode>

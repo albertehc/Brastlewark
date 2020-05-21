@@ -1,7 +1,7 @@
 import { takeLatest, call, put } from "redux-saga/effects";
-import * as constants from "./gnomes.contants";
-import getGnomes from "./../../utils/api";
-import * as G from "./gnomes.actions";
+import * as constants from "../constants/gnomes.contants";
+import getGnomes from "../../utils/api";
+import * as G from "../actions/gnomes.actions";
 
 function* getGnomesEffect() {
   try {

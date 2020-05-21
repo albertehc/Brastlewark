@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
-import { getGnomesRequest } from "./gnomes.actions";
+import { getGnomesRequest } from "./../../redux/actions/gnomes.actions";
 import { Pagination, Cards } from "./../../components";
 import * as S from "./styles";
 import Spinner from "./../../components/Spinner";

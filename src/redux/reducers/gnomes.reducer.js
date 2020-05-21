@@ -1,5 +1,5 @@
-import * as constants from "./gnomes.contants";
-import Professions from "./../../assets/icons/professions";
+import * as constants from "./../constants/gnomes.contants";
+import Professions from "../../assets/icons/professions";
 
 export const initialState = {
   gnomes: [],

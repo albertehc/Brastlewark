@@ -2,7 +2,7 @@
 
 ## Description
 
-Single page app in React to show data from an static JSON.
+Single page app in React to show data from an static JSON with global search to find in all object keys and multiple filters and fast links.
 
 ## Installation & Run
 
@@ -16,7 +16,7 @@ Single page app in React to show data from an static JSON.
 
 ## Test
 
-### yarn test --watchAll
+### yarn run test --watchAll
 
 ## Routes
 

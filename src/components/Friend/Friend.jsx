@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getGnomeRequest } from "./../../containers/Gnomes/gnomes.actions";
+import { getGnomeRequest } from "./../../redux/actions/gnomes.actions";
 import * as S from "./styles";
 
 export default ({ id, name, thumbnail, gender }) => {

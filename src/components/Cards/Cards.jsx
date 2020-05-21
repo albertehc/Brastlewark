@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import * as S from "./styles";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getGnomeRequest } from "./../../containers/Gnomes/gnomes.actions";
+import { getGnomeRequest } from "./../../redux/actions/gnomes.actions";
 import Hair from "./../Hair";
 
 export default ({ gnomes }) => {

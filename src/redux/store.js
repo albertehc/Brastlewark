@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { all } from "redux-saga/effects";
-import gnomesSaga from "./containers/Gnomes/gnomes.saga";
+import gnomesSaga from "./saga/gnomes.saga";
 import reducers from "./reducers";
 
 const sagaMiddleware = createSagaMiddleware();

@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Card, Row } from "react-bootstrap";
 import Icons from "./../../assets/icons/professions";
-import { getGnomesSearchRequest } from "./../../containers/Gnomes/gnomes.actions";
+import { getGnomesSearchRequest } from "./../../redux/actions/gnomes.actions";
 import * as S from "./styles";
 import { Friend } from "./../";
 import Hair from "./../Hair";

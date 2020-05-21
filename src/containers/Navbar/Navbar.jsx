@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getGnomesSearchRequest } from "./../../containers/Gnomes/gnomes.actions";
+import { getGnomesSearchRequest } from "./../../redux/actions/gnomes.actions";
 import {
   Navbar,
   Nav,
